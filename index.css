@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(233, 233, 233, 0.478);
+}
+
+.calculator-wrapper {
+    width: 15.8rem;
+    align-self: center;
+    margin-top: 5rem;
+    height: fit-content;
+    justify-self: center;
+    border-radius: 18px;
+    padding: 13px 0px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.calculator-wrapper > div:first-child {
+    display: grid;
+    width: 35%;
+    padding: 0 15px;
+    gap: 5px;
+    grid-template-columns: repeat(3, 12px);
+}
+
+.calculator-wrapper > div:first-child > span {
+    background-color: rgba(218, 218, 218, 0.778);
+    border-radius: 50%;
+    height: 12px;
+}
+
+.calculator-wrapper > div:nth-child(2) {
+    width: 12rem;
+    display: grid;
+    box-sizing: border-box;
+    justify-self: center;
+    padding: 0 15px;
+    justify-content: center;
+}
+
+.calculator-wrapper > div:nth-child(2) > h1 {
+    text-align: end;
+    font-size: 50px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.separator {
+    border-bottom: 1px solid rgba(214, 214, 214, 0.758);
+    width: 13rem;
+}
+
+.calculator-wrapper > div:nth-child(2) > p {
+    text-align: end;
+    color: rgba(141, 141, 141, 0.548);
+}
+
+.calculator-wrapper > div:nth-child(2) > p > span {
+    color: rgba(250, 128, 114, 0.786);
+}
+
+.container-result > button:last-child {
+    background-color: rgba(250, 152, 114, 0.786);
+}
+
+.container-calculator {
+    display: grid;
+    justify-self: center;
+    width: 100%;
+    justify-content: center;
+    height: 14.3rem;
+    grid-template-rows: repeat(4, 50px);
+    row-gap: 11px;
+    grid-template-columns: repeat(4, 50px);
+    gap: 6px;
+}
+
+.container-result {
+    display: grid;
+    padding: 0px 15px;
+    gap: 6px;
+    height: fit-content;
+    justify-content: space-between;
+    grid-template-columns: 100px 50px 50px;
+}
+
+.container-calculator > button,
+.container-result > button {
+    background-color: rgba(236, 236, 236, 0.207);
+    height: 50px;
+    border: none;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 50%;
+}
+
+.container-result > button:first-child {
+    border-radius: 30px;
+    display: grid;
+    text-align:start;
+    align-items: center;
+    padding-left: 20px;
+}
