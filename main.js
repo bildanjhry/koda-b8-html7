@@ -56,6 +56,7 @@ $(document).ready(function(){
     
     buttonOpr.click(function(){
         const result = $(this).text()
+        console.log(result)
         const valueOpr = $(this).val()
         const lasEl = inputField.children().last().text()
         if(isNaN(parseInt(lasEl)+1)){
