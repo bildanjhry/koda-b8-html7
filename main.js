@@ -5,19 +5,18 @@ $(document).ready(function(){
     const inputField =  $(".input-calc")
     const buttonResult = $("#result")
     const resultField = $(".result-field")
+    const buttonClear = $("#clear")
+
     let valueFirst = 0
     let valueSecond = 0
     let caseOpr = "";
 
     function handleOperator(opt) {
-        // let firstVal;
-        // if(value) {
-        //     firstVal = value
-        // }
+        console.log(valueFirst)
+        console.log(valueSecond)
         switch(opt) {
             case "*":
                 const result = parseInt(valueFirst) * parseInt(valueSecond)
-                console.log(result)
                 resultField.text(result)
                 break;
             case "+":
@@ -35,6 +34,7 @@ $(document).ready(function(){
     buttonNum.click(function(){
         const result = $(this).val()
         if(caseOpr) {
+            if(valueSecond) valueSecond = 0
             valueSecond += result
         } else {
             valueFirst += result
@@ -47,6 +47,18 @@ $(document).ready(function(){
     buttonOpr.click(function(){
         const result = $(this).text()
         const valueOpr = $(this).val()
+        if(valueFirst && caseOpr && valueSecond){
+            const resVal = resultField.text()
+            if(resVal){
+                valueFirst = resVal
+            } else {
+              //  handleOperator(valueOpr)
+            }
+            console.log(resVal)
+            //handleOperator(valueOpr)
+        } else {
+
+        }
         const span = $("<span>")
         span.addClass("red-color")
         span.text(result)
@@ -55,7 +67,14 @@ $(document).ready(function(){
     })
 
     buttonResult.click(function(){
-        console.log("hello")
         handleOperator(caseOpr)
+    })
+
+    buttonClear.click(function(){
+        valueFirst = 0
+        caseOpr = 0
+        valueSecond = 0
+        inputField.empty()
+        resultField.text("")
     })
 })
