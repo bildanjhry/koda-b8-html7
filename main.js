@@ -13,8 +13,7 @@ $(document).ready(function(){
     let caseOpr = "";
 
     function handleOperator(opt) {
-        console.log(valueFirst)
-        console.log(valueSecond)
+
         let resultVal = 0
         switch(opt) {
             case "*":
@@ -42,7 +41,6 @@ $(document).ready(function(){
         }
     }
 
-
     buttonNum.click(function(){
         const result = $(this).val()
         if(caseOpr) {
@@ -59,17 +57,16 @@ $(document).ready(function(){
     buttonOpr.click(function(){
         const result = $(this).text()
         const valueOpr = $(this).val()
+        const lasEl = inputField.children().last().text()
+        if(isNaN(parseInt(lasEl)+1)){
+            return
+        }
         if(valueFirst && caseOpr && valueSecond){
             const resVal = resultField.text()
-            if(resVal){
-                valueFirst = resVal
-            } else {
-              handleOperator(caseOpr)
-            }
-            //handleOperator(valueOpr)
-        } else {
+            if(resVal) valueFirst = resVal
+            else handleOperator(caseOpr)
+        } 
 
-        }
         const span = $("<span>")
         span.addClass("red-color")
         span.text(result)
@@ -83,11 +80,6 @@ $(document).ready(function(){
     })
 
     buttonClear.click(function(){
-        valueFirst = 0
-        caseOpr = 0
-        valueSecond = 0
-        inputField.empty()
-        resultField.text("")
         window.location.reload()
     })
 })
