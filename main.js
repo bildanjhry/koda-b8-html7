@@ -9,21 +9,33 @@ $(document).ready(function(){
 
     let valueFirst = 0
     let valueSecond = 0
+    let result = 0
     let caseOpr = "";
 
     function handleOperator(opt) {
         console.log(valueFirst)
         console.log(valueSecond)
+        let resultVal = 0
         switch(opt) {
             case "*":
-                const result = parseInt(valueFirst) * parseInt(valueSecond)
-                resultField.text(result)
+                if(result) return result *= parseInt(valueSecond)
+                resultVal = parseInt(valueFirst) * parseInt(valueSecond)
+                return result = resultVal
                 break;
             case "+":
+                if(result) return result += parseInt(valueSecond)
+                resultVal = parseInt(valueFirst) + parseInt(valueSecond)
+                return result = resultVal                
                 break;
             case "-":
+                if(result) return result -= parseInt(valueSecond)
+                resultVal = parseInt(valueFirst) - parseInt(valueSecond)
+                return result = resultVal                
                 break;
             case "/":
+                if(result) return result /= parseInt(valueSecond)
+                resultVal = parseInt(valueFirst) / parseInt(valueSecond)
+                return result = resultVal                
                 break;
             case "%":
                 break;    
@@ -52,9 +64,8 @@ $(document).ready(function(){
             if(resVal){
                 valueFirst = resVal
             } else {
-              //  handleOperator(valueOpr)
+              handleOperator(caseOpr)
             }
-            console.log(resVal)
             //handleOperator(valueOpr)
         } else {
 
@@ -68,6 +79,7 @@ $(document).ready(function(){
 
     buttonResult.click(function(){
         handleOperator(caseOpr)
+        resultField.text(result)
     })
 
     buttonClear.click(function(){
@@ -76,5 +88,6 @@ $(document).ready(function(){
         valueSecond = 0
         inputField.empty()
         resultField.text("")
+        window.location.reload()
     })
 })
